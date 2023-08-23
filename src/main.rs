@@ -5,8 +5,8 @@ mod site;
 mod state;
 mod types;
 
-use tera::Tera;
 use std::path::Path;
+use tera::Tera;
 
 use types::config::Config;
 use types::program::Program;
@@ -20,9 +20,7 @@ fn main() -> () {
 
     let tera = Tera::new("templates/**/*").unwrap();
 
-    let program = program::ProgramSync {
-        tera,
-    };
+    let program = program::ProgramSync { tera };
 
     let state = program.get_state(config).unwrap();
     let site = program.make_site(state).unwrap();
