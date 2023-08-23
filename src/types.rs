@@ -110,6 +110,7 @@ pub mod site {
     #[derive(Debug, Clone, super::Serialize)]
     pub struct Index {
         pub categories: Vec<CategoryReference>,
+        pub sources: Vec<Source>,
     }
 
     pub struct Site {

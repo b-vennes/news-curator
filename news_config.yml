@@ -1,0 +1,33 @@
+sources:
+  - title: The Verge -- Gadgets
+    link: https://www.theverge.com/rss/gadgets/index.xml
+    category: Tech
+    s_type: Atom
+  - title: The Verge -- Policy
+    link: https://www.theverge.com/policy/rss/index.xml
+    category: Tech
+    s_type: Atom
+  - title: Brad and Will made a tech pod
+    link: https://feeds.simplecast.com/qKIEAGzn
+    category: Tech 
+    s_type: RSS
+  - title: Tech Dirt
+    link: https://www.techdirt.com/feed
+    category: Tech
+    s_type: RSS
+  - title: Kotaku
+    link: https://kotaku.com/rss/index.xml
+    category: Games
+    s_type: RSS
+  - title: Shift-F1
+    link: https://feeds.megaphone.fm/NYOOM4196406795
+    category: Motorsports
+    s_type: RSS
+  - title: Autosport -- F1
+    link: https://www.autosport.com/rss/f1/news/
+    category: Motorsports
+    s_type: RSS
+  - title: IGN -- News
+    link: http://feeds.feedburner.com/ign/news
+    category: Games
+    s_type: RSS

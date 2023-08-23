@@ -60,8 +60,8 @@ impl types::site::Category {
             other_categories: other_categories
                 .iter()
                 .map(|c| types::site::CategoryReference {
-                    id: c.clone(),
-                    title: types::title_to_id(c.clone()),
+                    id: types::title_to_id(c.clone()),
+                    title: c.clone(),
                 })
                 .collect(),
         }

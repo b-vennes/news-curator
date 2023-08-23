@@ -7,15 +7,16 @@ impl types::state::Source {
         match config_source.s_type {
             types::config::SourceType::RSS => Self::load_rss(
                 config_source.link,
-                config_source.title,
+                config_source.title.clone(),
                 config_source.category,
             ),
             types::config::SourceType::Atom => Self::load_atom(
                 config_source.link,
-                config_source.title,
+                config_source.title.clone(),
                 config_source.category,
             ),
         }
+        .map_err(|e| format!("Error loading source '{}': {}", config_source.title, e))
     }
 
     pub fn load_rss(
@@ -88,5 +89,27 @@ impl types::state::Source {
             },
             link: feed_link,
         })
+    }
+
+    pub fn filter_items_by_date(self, after: NaiveDateTime) -> types::state::Source {
+        let filtered: Vec<types::state::Item> = self
+            .items
+            .iter()
+            .filter(|i_opt| {
+                i_opt
+                    .published_at
+                    .clone()
+                    .map(|p| p >= after)
+                    .unwrap_or(false)
+            })
+            .map(|i| i.clone())
+            .collect::<Vec<_>>();
+
+        types::state::Source {
+            title: self.title,
+            link: self.link,
+            category: self.category,
+            items: filtered,
+        }
     }
 }

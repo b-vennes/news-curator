@@ -20,6 +20,13 @@ impl types::program::Program for ProgramSync {
                 .sources
                 .iter()
                 .map(|s| types::state::Source::load(s.clone()))
+                .map(|s_res| {
+                    s_res.map(|s| {
+                        s.filter_items_by_date(
+                            chrono::offset::Utc::now().naive_utc() - chrono::Duration::days(3),
+                        )
+                    })
+                })
                 .collect(),
         )?;
 
@@ -62,11 +69,16 @@ impl types::program::Program for ProgramSync {
                 .collect(),
         )?;
 
+        let source_sites: Vec<types::site::Source> = state
+            .sources
+            .iter()
+            .map(|s| types::site::Source::from_source_state(s.clone()))
+            .collect();
+
         let source_pages: Vec<types::site::SourcePage> = result_ops::traverse_vec(
-            state
-                .sources
+            source_sites
                 .iter()
-                .map(|s| types::site::Source::from_source_state(s.clone()).render(&self.tera))
+                .map(|s| s.clone().render(&self.tera))
                 .collect(),
         )?;
 
@@ -78,6 +90,7 @@ impl types::program::Program for ProgramSync {
                     title: c.clone(),
                 })
                 .collect(),
+            sources: source_sites,
         }
         .render(&self.tera)?;
 
