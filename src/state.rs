@@ -49,9 +49,7 @@ impl types::state::Source {
         Ok(types::state::Source {
             title: feed_title,
             items,
-            category: types::state::Category {
-                title: category,
-            },
+            category: types::state::Category { title: category },
             link: feed_link,
         })
     }
@@ -65,17 +63,20 @@ impl types::state::Source {
             .and_then(|r| r.bytes())
             .map_err(|e| e.to_string())?;
 
-        let feed = atom_syndication::Feed::read_from(&link_content[..]).map_err(|e| e.to_string())?;
+        let feed =
+            atom_syndication::Feed::read_from(&link_content[..]).map_err(|e| e.to_string())?;
 
         let items = feed
             .entries()
             .iter()
             .map(|e| types::state::Item {
                 title: e.title().clone().value,
-                link: e.links.get(0).map(|l| l.href.to_string()).unwrap_or(String::from("")),
-                published_at:  e.published().map(|p| {
-                    p.naive_utc()
-                }),
+                link: e
+                    .links
+                    .get(0)
+                    .map(|l| l.href.to_string())
+                    .unwrap_or(String::from("")),
+                published_at: e.published().map(|p| p.naive_utc()),
             })
             .collect::<Vec<_>>();
 

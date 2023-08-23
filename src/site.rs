@@ -20,10 +20,7 @@ impl types::site::Item {
         }
     }
 
-    pub fn from_state_item(
-        item: types::state::Item,
-        source: types::Title,
-    ) -> types::site::Item {
+    pub fn from_state_item(item: types::state::Item, source: types::Title) -> types::site::Item {
         Self::new(
             item.title,
             item.link,
@@ -32,9 +29,7 @@ impl types::site::Item {
             item.published_at
                 .map(|p| p.date().to_string())
                 .unwrap_or(String::from("")),
-            item.published_at
-                .map(|p| p.timestamp())
-                .unwrap_or(0),
+            item.published_at.map(|p| p.timestamp()).unwrap_or(0),
         )
     }
 }
@@ -44,7 +39,7 @@ impl types::site::Category {
         id: String,
         title: String,
         sources: Vec<types::state::Source>,
-        other_categories: Vec<types::Title>
+        other_categories: Vec<types::Title>,
     ) -> types::site::Category {
         let mut items = sources
             .iter()
@@ -66,9 +61,9 @@ impl types::site::Category {
                 .iter()
                 .map(|c| types::site::CategoryReference {
                     id: c.clone(),
-                    title: types::title_to_id(c.clone())
+                    title: types::title_to_id(c.clone()),
                 })
-                .collect()
+                .collect(),
         }
     }
 
@@ -119,7 +114,6 @@ impl types::site::Source {
 }
 
 impl types::site::Index {
-
     pub fn render(self, tera: &Tera) -> Result<String, String> {
         let context = Context::from_serialize(&self).map_err(|e| e.to_string())?;
         let rendering = tera
