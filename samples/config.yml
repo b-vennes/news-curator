@@ -1,0 +1,17 @@
+sources:
+  - title: The Verge
+    link: https://www.theverge.com/rss/index.xml
+    category: Tech
+    s_type: Atom
+  - title: Brad And Will Made A Tech Pod
+    link: https://feeds.simplecast.com/qKIEAGzn
+    category: Podcasts
+    s_type: RSS
+  - title: Tech Dirt
+    link: https://www.techdirt.com/feed/
+    category: Tech
+    s_type: RSS
+  - title: Kotaku
+    link: https://kotaku.com/rss/index.xml
+    category: Games
+    s_type: RSS
