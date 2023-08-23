@@ -1,0 +1,16 @@
+<h1>{{ title }}</h1>
+<span>
+  {% for category in other_categories %}
+  <a href=/categories/{{ category.id }}>{{ category.title }}</a>
+  {% endfor %}
+</span>
+<ul>
+  {% for item in items %}
+  <li>
+    <a href={{ item.link }} target="_blank" style="text-decoration:none"><h2>{{ item.title }}</h2></a>
+    <p>
+      <a href=/sources/{{ item.source_id }}.html>{{ item.source }}</a> published on {{ item.published_at }}
+    </p>
+  </li>
+  {% endfor %}
+</ul>

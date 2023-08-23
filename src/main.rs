@@ -1,0 +1,30 @@
+mod config;
+mod program;
+mod result_ops;
+mod site;
+mod state;
+mod types;
+
+use tera::Tera;
+use std::path::Path;
+
+use types::config::Config;
+use types::program::Program;
+
+fn main() -> () {
+    let feed = Path::new("./samples/config.yml");
+
+    let config = Config::read_yaml(feed).unwrap();
+
+    println!("{:?}", config);
+
+    let tera = Tera::new("templates/**/*").unwrap();
+
+    let program = program::ProgramSync {
+        tera,
+    };
+
+    let state = program.get_state(config).unwrap();
+    let site = program.make_site(state).unwrap();
+    program.write_site(site).unwrap();
+}

@@ -1,0 +1,10 @@
+<h1>{{ title }}</h1>
+<a href=/categories/{{ category_id }}><h2>{{ category_name }}</h2></a>
+<ul>
+  {% for item in items %}
+  <li>
+    <a href={{ item.link }} target="_blank" style="text-decoration:none"><h2>{{ item.title }}</h2></a>
+    <p>Published on {{ item.published_at }}</p>
+  </li>
+  {% endfor %}
+</ul>

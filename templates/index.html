@@ -1,0 +1,8 @@
+<h1>Categories</h1>
+<ul>
+{% for category in categories %}
+<li>
+  <a href=/categories/{{ category.id }}>{{ category.title }}</a>
+</li>
+{% endfor %}
+</ul>
