@@ -1,15 +1,16 @@
 <h1>{{ title }}</h1>
 <span>
   {% for category in other_categories %}
-  <a href=/news-curator/categories/{{ category.id }}>{{ category.title }}</a>
+  <a href=../categories/{{ category.id }}>{{ category.title }}</a>
   {% endfor %}
 </span>
+<a href=../..>home</a>
 <ul>
   {% for item in items %}
   <li>
-    <a href={{ item.link }} target="_blank" style="text-decoration:none"><h2>{{ item.title }}</h2></a>
+    <a href={{ item.link }} style="text-decoration:none"><h2>{{ item.title }}</h2></a>
     <p>
-      <a href=/news-curator/sources/{{ item.source_id }}.html>{{ item.source }}</a> published on {{ item.published_at }}
+      <a href=../sources/{{ item.source_id }}.html>{{ item.source }}</a> // {{ item.published_at }}
     </p>
   </li>
   {% endfor %}

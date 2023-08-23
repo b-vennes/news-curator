@@ -12,7 +12,7 @@ use types::config::Config;
 use types::program::Program;
 
 fn main() -> () {
-    let feed = Path::new("./samples/config.yml");
+    let feed = Path::new("./news_config.yml");
 
     let config = Config::read_yaml(feed).unwrap();
 
