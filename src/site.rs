@@ -1,5 +1,5 @@
 use crate::types;
-use tera::{Context, Tera};
+use tera::{escape_html, Context, Tera};
 
 impl types::site::Item {
     pub fn new(
@@ -11,11 +11,11 @@ impl types::site::Item {
         timestamp: i64,
     ) -> types::site::Item {
         types::site::Item {
-            title,
+            title: escape_html(&title),
             link,
-            source,
-            source_id,
-            published_at,
+            source: escape_html(&source),
+            source_id: escape_html(&source_id),
+            published_at: escape_html(&published_at),
             timestamp,
         }
     }
@@ -54,14 +54,14 @@ impl types::site::Category {
         items.sort_by_key(|i| -1 * i.timestamp);
 
         types::site::Category {
-            id,
-            title,
+            id: escape_html(&id),
+            title: escape_html(&title),
             items,
             other_categories: other_categories
                 .iter()
                 .map(|c| types::site::CategoryReference {
-                    id: types::title_to_id(c.clone()),
-                    title: c.clone(),
+                    id: escape_html(&types::title_to_id(c.clone())),
+                    title: escape_html(&c),
                 })
                 .collect(),
         }
@@ -92,11 +92,11 @@ impl types::site::Source {
         items.sort_by_key(|i| -1 * i.timestamp);
 
         types::site::Source {
-            id: types::title_to_id(source.title.clone()),
-            title: source.title,
+            id: escape_html(&types::title_to_id(source.title.clone())),
+            title: escape_html(&source.title),
             items,
-            category_id: types::title_to_id(source.category.title.clone()),
-            category_name: source.category.title,
+            category_id: escape_html(&types::title_to_id(source.category.title.clone())),
+            category_name: escape_html(&source.category.title),
         }
     }
 
@@ -107,8 +107,8 @@ impl types::site::Source {
             .map_err(|e| e.to_string())?;
 
         Ok(types::site::SourcePage {
-            id: self.id,
-            rendered: rendering,
+            id: escape_html(&self.id),
+            rendered: escape_html(&rendering),
         })
     }
 }
