@@ -108,7 +108,7 @@ impl types::site::Source {
 
         Ok(types::site::SourcePage {
             id: escape_html(&self.id),
-            rendered: escape_html(&rendering),
+            rendered: rendering,
         })
     }
 }
