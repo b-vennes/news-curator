@@ -1,17 +1,49 @@
-<p>Categories</p>
-<ul>
-{% for category in categories %}
-<li>
-  <a href=./categories/{{ category.id }}>{{ category.title }}</a>
-</li>
-{% endfor %}
-</ul>
-
-<p>Sources</p>
-<ul>
-{% for source in sources %}
-<li>
-  <a href=./sources/{{ source.id }}.html>{{ source.title }}</a>
-</li>
-{% endfor %}
-</ul>
+<html>
+<head>
+  <title>Branden's News</title>
+  <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body class="bg-black">
+<div class="display-inline-block border-double border-slate-200 m-1">
+  <a href=../ class="text-white font-md no-underline m-1">home</a>
+</div>
+<div class="m-5">
+  <span class="text-white font-lg">
+    Categories
+  </span>
+  <div>
+    <ul class="text-slate-400">
+      {% for category in categories %}
+      <li class="m-5">
+        <a
+          href=./categories/{{ category.id }}
+          class="text-white font-md no-underline italic"
+        >
+          {{ category.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<div class="m-5">
+  <span class="text-white font-lg">
+    Sources
+  </span>
+  <div>
+    <ul class="text-slate-400">
+      {% for source in sources %}
+      <li class="m-5">
+        <a
+          href=./sources/{{ source.id }}
+          class="text-white font-md italic no-underline"
+        >
+          {{ source.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+</body>
+</html>

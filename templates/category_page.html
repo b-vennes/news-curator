@@ -1,17 +1,41 @@
-<h1>{{ title }}</h1>
-<span>
-  {% for category in other_categories %}
-  <a href=../categories/{{ category.id }}>{{ category.title }}</a>
-  {% endfor %}
-</span>
-<a href=../..>home</a>
-<ul>
-  {% for item in items %}
-  <li>
-    <a href={{ item.link }} style="text-decoration:none"><h2>{{ item.title }}</h2></a>
-    <p>
-      <a href=../sources/{{ item.source_id }}.html>{{ item.source }}</a> // {{ item.published_at }}
-    </p>
-  </li>
-  {% endfor %}
-</ul>
+<html>
+<head>
+  <title>Branden's News - {{ title }}</title>
+  <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body class="bg-black">
+<div class="display-inline-block border-double border-slate-200 m-1">
+  <a href=../ class="text-white font-md no-underline m-1">home</a>
+</div>
+<div class="m-5">
+  <span class="text-white font-lg">
+    {{ title }}
+    <span>
+      {% for category in other_categories %}
+      <a 
+        href=../categories/{{ category.id }}
+        class="text-slate-400 font-sm no-underline"
+      >
+        {{ category.title }}
+      </a>
+      {% endfor %}
+    </span>
+  </span>
+</div>
+<div>
+  <ul class="text-slate-400">
+    {% for item in items %}
+    <li class="m-5">
+      <div>
+        <a class="text-white font-md no-underline italic" href={{ item.link }}>{{ item.title }}</a>
+      </div>
+      <div>
+        <a class="text-slate-200 font-sm" href=../sources/{{ item.source_id }}.html>{{ item.source }}</a>
+        <span class="text-slate-200 font-sm">// {{ item.published_at }}</span>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+</body>
+</html>
