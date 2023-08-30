@@ -48,7 +48,8 @@ impl types::program::Program for ProgramSync {
                 acc
             });
 
-        let category_titles: Vec<types::Title> = categories_map.keys().cloned().collect::<Vec<_>>();
+        let mut category_titles: Vec<types::Title> = categories_map.keys().cloned().collect::<Vec<_>>();
+        category_titles.sort();
 
         let category_pages: Vec<types::site::CategoryPage> = result_ops::traverse_vec(
             categories_map
@@ -69,11 +70,12 @@ impl types::program::Program for ProgramSync {
                 .collect(),
         )?;
 
-        let source_sites: Vec<types::site::Source> = state
+        let mut source_sites: Vec<types::site::Source> = state
             .sources
             .iter()
             .map(|s| types::site::Source::from_source_state(s.clone()))
             .collect();
+        source_sites.sort_by_key(|s| s.title.clone());
 
         let source_pages: Vec<types::site::SourcePage> = result_ops::traverse_vec(
             source_sites

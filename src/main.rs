@@ -16,8 +16,6 @@ fn main() -> () {
 
     let config = Config::read_yaml(feed).unwrap();
 
-    println!("{:?}", config);
-
     let tera = Tera::new("templates/**/*").unwrap();
 
     let program = program::ProgramSync { tera };
