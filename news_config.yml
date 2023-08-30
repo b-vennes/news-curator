@@ -51,7 +51,3 @@ sources:
     link: https://www.clockworkworlds.com/rss/
     category: Games
     s_type: RSS
-  - title: r/Scala
-    link: https://www.reddit.com/r/scala/.rss
-    category: Code
-    s_type: Atom
