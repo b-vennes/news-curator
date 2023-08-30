@@ -1,6 +1,21 @@
 use crate::types;
 use tera::{Context, Tera};
 
+/// Escape values that could be harmful if a feed is compromised.
+/// This function was copied from tera::escape_html and modified to make
+/// text more readable.
+fn escape_html(input: &str) -> String {
+    let mut output = String::with_capacity(input.len() * 2);
+    for c in input.chars() {
+        match c {
+            '<' => output.push_str("&lt;"),
+            '>' => output.push_str("&gt;"),
+            _ => output.push(c),
+        }
+    }
+    output
+}
+
 impl types::site::Item {
     pub fn new(
         title: String,
@@ -11,11 +26,11 @@ impl types::site::Item {
         timestamp: i64,
     ) -> types::site::Item {
         types::site::Item {
-            title,
+            title: escape_html(&title),
             link,
-            source,
-            source_id,
-            published_at,
+            source: escape_html(&source),
+            source_id: escape_html(&source_id),
+            published_at: escape_html(&published_at),
             timestamp,
         }
     }
@@ -54,14 +69,14 @@ impl types::site::Category {
         items.sort_by_key(|i| -1 * i.timestamp);
 
         types::site::Category {
-            id,
-            title,
+            id: escape_html(&id),
+            title: escape_html(&title),
             items,
             other_categories: other_categories
                 .iter()
                 .map(|c| types::site::CategoryReference {
-                    id: types::title_to_id(c.clone()),
-                    title: c.clone(),
+                    id: escape_html(&types::title_to_id(c.clone())),
+                    title: escape_html(&c),
                 })
                 .collect(),
         }
@@ -92,11 +107,11 @@ impl types::site::Source {
         items.sort_by_key(|i| -1 * i.timestamp);
 
         types::site::Source {
-            id: types::title_to_id(source.title.clone()),
-            title: source.title,
+            id: escape_html(&types::title_to_id(source.title.clone())),
+            title: escape_html(&source.title),
             items,
-            category_id: types::title_to_id(source.category.title.clone()),
-            category_name: source.category.title,
+            category_id: escape_html(&types::title_to_id(source.category.title.clone())),
+            category_name: escape_html(&source.category.title),
         }
     }
 
@@ -107,7 +122,7 @@ impl types::site::Source {
             .map_err(|e| e.to_string())?;
 
         Ok(types::site::SourcePage {
-            id: self.id,
+            id: escape_html(&self.id),
             rendered: rendering,
         })
     }
