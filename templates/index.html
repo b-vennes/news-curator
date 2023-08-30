@@ -5,10 +5,10 @@
 </head>
 <body class="bg-black">
 <div class="display-inline-block border-double border-slate-200 m-1">
-  <a href=../ class="text-white font-md no-underline m-1">home</a>
+  <a href=../ class="text-white font-md no-underline m-1 font-mono">home</a>
 </div>
 <div class="m-5">
-  <span class="text-white font-lg">
+  <span class="text-white font-lg font-mono">
     Categories
   </span>
   <div>
@@ -17,7 +17,7 @@
       <li class="m-5">
         <a
           href=./categories/{{ category.id }}
-          class="text-white font-md no-underline italic"
+          class="text-white font-md no-underline font-mono"
         >
           {{ category.title }}
         </a>
@@ -27,7 +27,7 @@
   </div>
 </div>
 <div class="m-5">
-  <span class="text-white font-lg">
+  <span class="text-white font-lg font-mono">
     Sources
   </span>
   <div>
@@ -36,7 +36,7 @@
       <li class="m-5">
         <a
           href=./sources/{{ source.id }}
-          class="text-white font-md italic no-underline"
+          class="text-white font-md font-mono no-underline"
         >
           {{ source.title }}
         </a>
