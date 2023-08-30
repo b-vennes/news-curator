@@ -54,4 +54,4 @@ sources:
   - title: r/Scala
     link: https://www.reddit.com/r/scala/.rss
     category: Code
-    s_type: RSS
+    s_type: Atom
