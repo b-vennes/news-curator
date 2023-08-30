@@ -47,3 +47,11 @@ sources:
     link: https://www.polygon.com/rss/news/index.xml
     category: Games
     s_type: Atom
+  - title: Clockwork Worlds
+    link: https://www.clockworkworlds.com/rss/
+    category: Games
+    s_type: RSS
+  - title: r/Scala
+    link: https://www.reddit.com/r/scala/.rss
+    category: Code
+    s_type: RSS
