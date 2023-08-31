@@ -51,3 +51,31 @@ sources:
     link: https://www.clockworkworlds.com/rss/
     category: Games
     s_type: RSS
+  - title: Remap Subreddit
+    link: https://www.reddit.com/r/WaypointVICE/.rss
+    category: Games
+    s_type: Atom
+  - title: Formula 1 Subreddit
+    link: https://www.reddit.com/r/formula1/.rss
+    category: Motorsports
+    s_type: Atom
+  - title: Scala Subreddit
+    link: https://www.reddit.com/r/scala/.rss
+    category: Code
+    s_type: Atom
+  - title: Petr Zapletal
+    link: https://medium.com/feed/@petr-zapletal
+    category: Code
+    s_type: RSS
+  - title: Spencer Chang
+    link: https://spencerchang.me/index.xml
+    category: Code
+    s_type: RSS
+  - title: Austin Walker's Cohost
+    link: https://cohost.org/austin/rss/public.atom
+    category: Games
+    s_type: Atom
+  - title: Jeff Gerstmann's Cohost
+    link: https://cohost.org/jeffgerstmann/rss/public.atom
+    category: Games
+    s_type: Atom
