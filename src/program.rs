@@ -9,6 +9,7 @@ use crate::types;
 
 pub struct ProgramSync {
     pub tera: Tera,
+    pub client: reqwest::blocking::Client,
 }
 
 impl types::program::Program for ProgramSync {
@@ -19,7 +20,7 @@ impl types::program::Program for ProgramSync {
             config
                 .sources
                 .iter()
-                .map(|s| types::state::Source::load(s.clone()))
+                .map(|s| types::state::Source::load(s.clone(), &self.client))
                 .map(|s_res| {
                     s_res.map(|s| {
                         s.filter_items_by_date(

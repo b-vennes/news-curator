@@ -17,8 +17,9 @@ fn main() -> () {
     let config = Config::read_yaml(feed).unwrap();
 
     let tera = Tera::new("templates/**/*").unwrap();
+    let client = reqwest::blocking::Client::new();
 
-    let program = program::ProgramSync { tera };
+    let program = program::ProgramSync { tera, client };
 
     let state = program.get_state(config).unwrap();
     let site = program.make_site(state).unwrap();

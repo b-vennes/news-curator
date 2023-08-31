@@ -1,19 +1,32 @@
 use chrono::{DateTime, NaiveDateTime};
+use reqwest::header::USER_AGENT;
 
 use crate::types;
 
+fn retrieve_content(link: &String, client: &reqwest::blocking::Client) -> Result<bytes::Bytes, String> {
+    client
+        .get(link)
+        .header(USER_AGENT, "news-curator")
+        .send()
+        .and_then(|r| r.bytes())
+        .map_err(|e| e.to_string())
+
+}
+
 impl types::state::Source {
-    pub fn load(config_source: types::config::Source) -> Result<types::state::Source, String> {
+    pub fn load(config_source: types::config::Source, client: &reqwest::blocking::Client) -> Result<types::state::Source, String> {
         match config_source.s_type {
             types::config::SourceType::RSS => Self::load_rss(
                 config_source.link,
                 config_source.title.clone(),
                 config_source.category,
+                client,
             ),
             types::config::SourceType::Atom => Self::load_atom(
                 config_source.link,
                 config_source.title.clone(),
                 config_source.category,
+                client,
             ),
         }
         .map_err(|e| format!("Error loading source '{}': {}", config_source.title, e))
@@ -23,10 +36,9 @@ impl types::state::Source {
         feed_link: types::Link,
         feed_title: types::Title,
         category: types::Title,
+        client: &reqwest::blocking::Client
     ) -> Result<types::state::Source, String> {
-        let link_content = reqwest::blocking::get(feed_link.clone())
-            .and_then(|r| r.bytes())
-            .map_err(|e| e.to_string())?;
+        let link_content = retrieve_content(&feed_link, &client)?;
 
         let feed = rss::Channel::read_from(&link_content[..]).map_err(|e| e.to_string())?;
 
@@ -59,10 +71,9 @@ impl types::state::Source {
         feed_link: String,
         feed_title: String,
         category_name: String,
+        client: &reqwest::blocking::Client,
     ) -> Result<types::state::Source, String> {
-        let link_content = reqwest::blocking::get(feed_link.clone())
-            .and_then(|r| r.bytes())
-            .map_err(|e| e.to_string())?;
+        let link_content = retrieve_content(&feed_link, &client)?;
 
         let feed =
             atom_syndication::Feed::read_from(&link_content[..]).map_err(|e| e.to_string())?;
