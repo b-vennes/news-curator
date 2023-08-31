@@ -68,3 +68,11 @@
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+
+a:visited.visited-text-slate-200 {
+  color: rgb(226 232 240);
+}
+
+a:visited.visited-text-slate-400 {
+  color: rgb(100 116 139);
+}
