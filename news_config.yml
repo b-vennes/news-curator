@@ -79,3 +79,7 @@ sources:
     link: https://cohost.org/jeffgerstmann/rss/public.atom
     category: Games
     s_type: Atom
+  - title: Remap Radio
+    link: https://remapradio.com/articles/rss/
+    category: Games
+    s_type: RSS
