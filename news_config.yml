@@ -71,10 +71,11 @@ sources:
     link: https://spencerchang.me/index.xml
     category: Code
     s_type: RSS
-  - title: Austin Walker's Cohost
-    link: https://cohost.org/austin/rss/public.atom
-    category: Games
-    s_type: Atom
+# some encoding bug
+#  - title: Austin Walker's Cohost
+#    link: https://cohost.org/austin/rss/public.atom
+#    category: Games
+#    s_type: Atom
   - title: Jeff Gerstmann's Cohost
     link: https://cohost.org/jeffgerstmann/rss/public.atom
     category: Games
