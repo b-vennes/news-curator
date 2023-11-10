@@ -1,5 +1,5 @@
 FROM rust:buster
-LABEL authors="branden.vennes"
+LABEL authors="b-vennes"
 
 COPY . /app
 WORKDIR /app
