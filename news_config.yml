@@ -7,10 +7,6 @@ sources:
     link: https://www.theverge.com/policy/rss/index.xml
     category: Tech
     s_type: Atom
-  - title: Brad and Will made a tech pod
-    link: https://feeds.simplecast.com/qKIEAGzn
-    category: Tech 
-    s_type: RSS
   - title: Tech Dirt
     link: https://www.techdirt.com/feed
     category: Tech
@@ -18,10 +14,6 @@ sources:
   - title: Kotaku
     link: https://kotaku.com/rss/index.xml
     category: Games
-    s_type: RSS
-  - title: Shift-F1
-    link: https://feeds.megaphone.fm/NYOOM4196406795
-    category: Motorsports
     s_type: RSS
   - title: Autosport F1
     link: https://www.autosport.com/rss/f1/news/
@@ -71,15 +63,6 @@ sources:
     link: https://spencerchang.me/index.xml
     category: Code
     s_type: RSS
-# some encoding bug
-#  - title: Austin Walker's Cohost
-#    link: https://cohost.org/austin/rss/public.atom
-#    category: Games
-#    s_type: Atom
-  - title: Jeff Gerstmann's Cohost
-    link: https://cohost.org/jeffgerstmann/rss/public.atom
-    category: Games
-    s_type: Atom
   - title: Remap Radio
     link: https://remapradio.com/articles/rss/
     category: Games
