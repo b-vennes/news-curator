@@ -1,44 +1,12 @@
 sources:
-  - title: The Verge Gadgets
-    link: https://www.theverge.com/rss/gadgets/index.xml
-    category: Tech
-    s_type: Atom
-  - title: The Verge Policy
-    link: https://www.theverge.com/policy/rss/index.xml
-    category: Tech
-    s_type: Atom
   - title: Tech Dirt
     link: https://www.techdirt.com/feed
     category: Tech
-    s_type: RSS
-  - title: Kotaku
-    link: https://kotaku.com/rss/index.xml
-    category: Games
-    s_type: RSS
-  - title: Autosport F1
-    link: https://www.autosport.com/rss/f1/news/
-    category: Motorsports
-    s_type: RSS
-  - title: NPR
-    link: https://feeds.npr.org/1001/rss.xml
-    category: News
-    s_type: RSS
-  - title: IGN News
-    link: http://feeds.feedburner.com/ign/news
-    category: Games
     s_type: RSS
   - title: Crossplay
     link: https://patrickklepek.substack.com/feed
     category: Games
     s_type: RSS
-  - title: The New Yorker
-    link: https://www.newyorker.com/feed/news
-    category: News
-    s_type: RSS
-  - title: Polygon News
-    link: https://www.polygon.com/rss/news/index.xml
-    category: Games
-    s_type: Atom
   - title: Clockwork Worlds
     link: https://www.clockworkworlds.com/rss/
     category: Games
@@ -49,7 +17,7 @@ sources:
     s_type: Atom
   - title: Formula 1 Subreddit
     link: https://www.reddit.com/r/formula1/.rss
-    category: Motorsports
+    category: Racing
     s_type: Atom
   - title: Scala Subreddit
     link: https://www.reddit.com/r/scala/.rss
@@ -65,5 +33,9 @@ sources:
     s_type: RSS
   - title: Remap Radio
     link: https://remapradio.com/articles/rss/
+    category: Games
+    s_type: RSS
+  - title: Aftermath
+    link: https://aftermath.site/rss
     category: Games
     s_type: RSS
