@@ -21,3 +21,30 @@ sources:
     category: Tech
     s_type: RSS # or Atom
 ```
+
+## Create And Upload AWS ECR Image
+
+```shell
+export PROFILE_NAME="your-profile-name"
+export ECR_ALIAS="your-ecr-alias"
+
+# build image
+docker build --platform linux/amd64 -t news-curator .
+
+# log into Docker using ECR creds
+aws \
+  --profile $PROFILE_NAME \
+  ecr-public \
+  get-login-password \
+  --region us-east-1 \
+  | \
+  docker login \
+  --username AWS \
+  --password-stdin public.ecr.aws/$ECR_ALIAS
+
+# tag image with ECR uri  
+docker tag news-curator:latest public.ecr.aws/$ECR_ALIAS/news-curator:latest
+
+# push image to ECR
+docker push public.ecr.aws/$ECR_ALIAS/news-curator:latest
+```

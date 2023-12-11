@@ -24,7 +24,7 @@ impl types::program::Program for ProgramSync {
                 .map(|s_res| {
                     s_res.map(|s| {
                         s.filter_items_by_date(
-                            chrono::offset::Utc::now().naive_utc() - chrono::Duration::days(3),
+                            chrono::offset::Utc::now().naive_utc() - chrono::Duration::days(14),
                         )
                     })
                 })
