@@ -39,3 +39,7 @@ sources:
     link: https://aftermath.site/rss
     category: Games
     s_type: RSS
+  - title: 404 Media
+    link: https://www.404media.co/rss/
+    category: Tech
+    s_type: RSS
