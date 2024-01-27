@@ -47,3 +47,15 @@ sources:
     link: https://www.austinchronicle.com/gyrobase/rss/daily.xml
     category: Austin
     s_type: RSS
+  - title: Kotlin Subreddit
+    link: https://www.reddit.com/r/Kotlin/.rss
+    category: Code
+    s_type: Atom
+  - title: Java Subreddit
+    link: https://www.reddit.com/r/java/.rss
+    category: Code
+    s_type: Atom
+  - title: C# Subreddit
+    link: https://www.reddit.com/r/csharp/.rss
+    category: Code
+    s_type: Atom
