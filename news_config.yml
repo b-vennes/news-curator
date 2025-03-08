@@ -27,10 +27,6 @@ sources:
     link: https://medium.com/feed/@petr-zapletal
     category: Code
     s_type: RSS
-  - title: Spencer Chang
-    link: https://spencerchang.me/index.xml
-    category: Code
-    s_type: RSS
   - title: Remap Radio
     link: https://remapradio.com/articles/rss/
     category: Games
@@ -43,19 +39,3 @@ sources:
     link: https://www.404media.co/rss/
     category: Tech
     s_type: RSS
-  - title: Austin Chronicle
-    link: https://www.austinchronicle.com/gyrobase/rss/daily-news.xml
-    category: Austin
-    s_type: RSS
-  - title: Kotlin Subreddit
-    link: https://www.reddit.com/r/Kotlin/.rss
-    category: Code
-    s_type: Atom
-  - title: Java Subreddit
-    link: https://www.reddit.com/r/java/.rss
-    category: Code
-    s_type: Atom
-  - title: C# Subreddit
-    link: https://www.reddit.com/r/csharp/.rss
-    category: Code
-    s_type: Atom
