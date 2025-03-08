@@ -43,10 +43,10 @@ sources:
     link: https://www.404media.co/rss/
     category: Tech
     s_type: RSS
-  - title: Austin Chronicle
-    link: https://www.austinchronicle.com/gyrobase/rss/daily.xml
-    category: Austin
-    s_type: RSS
+  # - title: Austin Chronicle
+  #   link: https://www.austinchronicle.com/gyrobase/rss/daily.xml
+  #   category: Austin
+  #   s_type: RSS
   - title: Kotlin Subreddit
     link: https://www.reddit.com/r/Kotlin/.rss
     category: Code
