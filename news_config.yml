@@ -39,3 +39,7 @@ sources:
     link: https://www.404media.co/rss/
     category: Tech
     s_type: RSS
+  - title: Wired
+    link: https://www.wired.com/feed/rss
+    s_type: RSS
+    category: Tech
