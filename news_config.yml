@@ -43,3 +43,7 @@ sources:
     link: https://www.wired.com/feed/rss
     s_type: RSS
     category: Tech
+  - title: Knapp Arcade
+    link: https://knapparcade.com/api/rss
+    s_type: RSS
+    category: Pinball
