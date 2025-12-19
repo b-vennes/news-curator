@@ -47,3 +47,7 @@ sources:
     link: https://knapparcade.com/api/rss
     s_type: RSS
     category: Pinball
+  - title: Where's Your Ed At
+    link: https://www.wheresyoured.at/rss
+    s_type: RSS
+    category: Tech
